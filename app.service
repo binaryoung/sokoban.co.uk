@@ -1,0 +1,14 @@
+[Unit]
+Description=App
+After=network.target
+
+
+[Service]
+Restart=on-failure
+WorkingDirectory=/root/sokoban.co.uk
+Environment="PATH=/root/anaconda3/bin"
+ExecStart=/root/anaconda3/bin/gunicorn -w 4 app:app
+
+
+[Install]
+WantedBy=multi-user.target
